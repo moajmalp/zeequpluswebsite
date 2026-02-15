@@ -1,0 +1,119 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-lexend), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-lexend), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  @keyframes blob {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+
+    100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+  }
+
+  --animate-blob: blob 7s infinite;
+}
+
+:root {
+  /* White Theme (Default) */
+  --background: oklch(0.994 0.002 95);
+  /* Warm White #fefefe */
+  --foreground: oklch(0.273 0.006 285);
+  /* Charcoal #333333 */
+
+  --primary: oklch(0.546 0.245 262.88);
+  /* Royal Blue #2563eb */
+  --primary-foreground: oklch(0.994 0.002 95);
+
+  --secondary: oklch(0.85 0.1 230);
+  /* Light Sky Blue */
+  --secondary-foreground: oklch(0.546 0.245 262.88);
+
+  --accent: oklch(0.696 0.17 236);
+  /* Sky Blue #0ea5e9 */
+  --accent-foreground: oklch(0.994 0.002 95);
+
+  --radius: 1.25rem;
+  /* Playful rounded corners */
+
+  --card: oklch(1 0 0);
+  --card-foreground: var(--foreground);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--foreground);
+  --muted: oklch(0.95 0.01 230);
+  --muted-foreground: oklch(0.5 0.01 230);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.9 0.01 230);
+  --input: oklch(0.9 0.01 230);
+  --ring: oklch(0.546 0.245 262.88);
+}
+
+.dark {
+  /* Blue Theme (Dark Mode) - Using Royal Blue as background for a vibrant vibe */
+  --background: oklch(0.3 0.1 262);
+  --foreground: oklch(0.994 0.002 95);
+
+  --primary: oklch(0.7 0.15 236);
+  --primary-foreground: oklch(0.3 0.1 262);
+
+  --secondary: oklch(0.4 0.15 262);
+  --secondary-foreground: oklch(0.994 0.002 95);
+
+  --accent: oklch(0.6 0.22 262);
+  --accent-foreground: oklch(0.994 0.002 95);
+
+  --card: oklch(0.35 0.1 262);
+  --card-foreground: var(--foreground);
+  --popover: oklch(0.35 0.1 262);
+  --popover-foreground: var(--foreground);
+  --muted: oklch(0.4 0.05 262);
+  --muted-foreground: oklch(0.8 0.05 262);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.7 0.15 236);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50 transition-all duration-300;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
