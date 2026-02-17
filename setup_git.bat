@@ -1,0 +1,7 @@
+@echo off
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/codoacademy/zeequeplus-web.git
+git push -u origin main

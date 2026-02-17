@@ -2,16 +2,17 @@
 
 import { motion } from "framer-motion";
 import {
-    Monitor,
     Smartphone,
-    Tablet,
+    Laptop,
+    Headphones,
     Wifi,
     Video,
-    Users,
-    Calendar,
+    Mic,
+    ArrowRight,
     HelpCircle,
-    Zap,
-    CheckCircle2
+    PlayCircle,
+    Monitor,
+    Users
 } from "lucide-react";
 import {
     Accordion,
@@ -19,188 +20,189 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion";
-
-const faqItems = [
-    {
-        question: "What if we miss a class?",
-        answer: "We understand that school schedules can be busy. For missed classes, we provide recorded session access and a 15-minute doubt-clearing slot on Fridays to ensure no child falls behind."
-    },
-    {
-        question: "How frequent are the assessments?",
-        answer: "We follow a 'Progressive Assessment' model. There are weekly micro-quizzes (5 mins) and a more formal review every 4 weeks to track Tajweed and Hifz fluency."
-    },
-    {
-        question: "What device is best for the classes?",
-        answer: "While smartphones work, we recommend a Laptop or Tablet (iPad/Android) for a better visual experience of the digital Qur'an scripts and slides."
-    },
-    {
-        question: "Are the classes grouped by age or class level?",
-        answer: "Classes are strictly grouped based on school classes (1-10). This ensures children are learning with peers of similar maturity levels and academic understanding."
-    },
-    {
-        question: "Will my child get a certificate?",
-        answer: "Yes! Every student receives a certificate of completion at the end of each level, recognizing their achievement in Tajweed, Hifz, and Akhlaq."
-    }
-];
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function ExperiencePage() {
+    const techStack = [
+        {
+            icon: <Monitor size={40} />,
+            title: "Laptop / PC",
+            description: "Best for viewing shared screens and detailed lessons.",
+            color: "bg-blue-50 dark:bg-blue-900/10 text-blue-500",
+        },
+        {
+            icon: <Smartphone size={40} />,
+            title: "Smartphone / Tablet",
+            description: "Learn on the go with our fully responsive platform.",
+            color: "bg-indigo-50 dark:bg-indigo-900/10 text-indigo-500",
+        },
+        {
+            icon: <Headphones size={40} />,
+            title: "Clear Audio",
+            description: "Two-way audio ensures perfect recitation correction.",
+            color: "bg-violet-50 dark:bg-violet-900/10 text-zeeque-violet",
+        },
+    ];
+
+    const faqs = [
+        {
+            question: "What if we miss a class?",
+            answer:
+                "Don't worry! All live sessions are recorded. You can access the recording from your dashboard immediately after the class ends to catch up.",
+        },
+        {
+            question: "Is the camera mandatory?",
+            answer:
+                "For Tajweed correction, seeing the student's articulation points is helpful but not strictly mandatory if parents prefer otherwise. However, audio interaction is essential.",
+        },
+        {
+            question: "How do I track my child's progress?",
+            answer:
+                "We provide a weekly progress report via WhatsApp and a detailed monthly assessment card covering attendance, recitation quality, and memorization status.",
+        },
+        {
+            question: "Can I choose the class timing?",
+            answer:
+                "Yes! During enrollment, you can select from our available batch slots (Morning, Evening, or Night) that best fit your schedule.",
+        },
+    ];
+
     return (
-        <div className="min-h-screen pt-32 pb-20">
-            {/* Hero Section */}
-            <section className="container mx-auto px-6 mb-24">
-                <div className="max-w-4xl mx-auto text-center space-y-6">
+        <div className="flex flex-col min-h-screen bg-background">
+            {/* 1. HERO SECTION */}
+            <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+                <div className="container-fluid relative z-10 text-center">
                     <motion.div
-                        initial={{ scale: 0.8, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary font-bold text-xs uppercase tracking-widest"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        className="max-w-4xl mx-auto space-y-8"
                     >
-                        <Video size={14} /> The Classroom
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-50 dark:bg-rose-900/10 border border-rose-100 dark:border-rose-800/20 text-rose-500 font-black text-xs uppercase tracking-widest">
+                            <div className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse" />
+                            Live Interactive Experience
+                        </div>
+                        <h1 className="text-6xl md:text-8xl font-serif font-black tracking-tight leading-[1.1] bg-clip-text text-transparent bg-zeeque-gradient">
+                            Bring the <span className="italic">Madrasa</span> Home.
+                        </h1>
+                        <p className="text-xl md:text-2xl text-foreground/60 max-w-2xl mx-auto leading-relaxed font-medium">
+                            Experience the spiritual connection of a traditional classroom with the convenience of modern technology.
+                        </p>
                     </motion.div>
-                    <motion.h1
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        className="text-5xl md:text-7xl font-black text-foreground tracking-tight leading-tight"
-                    >
-                        Interactive <span className="text-primary">Live Learning</span> Experience
-                    </motion.h1>
-                    <motion.p
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.2 }}
-                        className="text-xl text-foreground/60 font-medium max-w-2xl mx-auto"
-                    >
-                        We use cutting-edge Ed-Tech tools to make Qur&apos;anic education as immersive as their favorite school subjects.
-                    </motion.p>
-                </div>
-            </section>
 
-            {/* Class Format Details */}
-            <section className="container mx-auto px-6 mb-32">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {[
-                        {
-                            title: "Small Batches",
-                            desc: "Limited to 10-12 students per batch to ensure personalized attention for every child's pronunciation.",
-                            icon: <Users className="text-blue-600" />,
-                            bg: "bg-blue-50"
-                        },
-                        {
-                            title: "Live Interaction",
-                            desc: "Real-time Q&A, group recitations, and interactive whiteboard games to keep motivation high.",
-                            icon: <Zap className="text-amber-500" />,
-                            bg: "bg-amber-50"
-                        },
-                        {
-                            title: "Weekly Planning",
-                            desc: "A clear weekly roadmap shared with parents, covering Hifz goals and Akhlaq stories.",
-                            icon: <Calendar className="text-green-600" />,
-                            bg: "bg-green-50"
-                        }
-                    ].map((item, i) => (
-                        <motion.div
-                            key={item.title}
-                            initial={{ y: 20, opacity: 0 }}
-                            whileInView={{ y: 0, opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: i * 0.1 }}
-                            className={`p-10 ${item.bg} rounded-[3rem] space-y-6 hover:scale-[1.02] transition-transform`}
-                        >
-                            <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-sm">
-                                {item.icon}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.3, duration: 0.8 }}
+                        className="mt-20 relative max-w-5xl mx-auto rounded-[3rem] overflow-hidden shadow-2xl shadow-violet-500/10 border-[12px] border-white/50 dark:border-zinc-900/50 bg-zinc-900"
+                    >
+                        <div className="aspect-video relative flex items-center justify-center overflow-hidden">
+                            <div className="absolute inset-0 opacity-40 bg-[url('https://images.unsplash.com/photo-1610484826967-09c5720778c7?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/20 to-zinc-900/40" />
+
+                            <div className="relative z-10 flex flex-col items-center gap-8">
+                                <button className="w-24 h-24 bg-white/10 backdrop-blur-xl rounded-full flex items-center justify-center text-white border border-white/20 cursor-pointer hover:scale-110 active:scale-95 transition-all shadow-2xl">
+                                    <PlayCircle size={48} fill="currentColor" className="opacity-90" />
+                                </button>
+                                <p className="text-white font-black tracking-widest text-sm uppercase bg-white/10 px-6 py-2 rounded-full backdrop-blur-md border border-white/10">Watch the Experience</p>
                             </div>
-                            <h3 className="text-2xl font-black">{item.title}</h3>
-                            <p className="text-foreground/70 font-medium leading-relaxed">{item.desc}</p>
-                        </motion.div>
-                    ))}
-                </div>
-            </section>
 
-            {/* Tech Requirements */}
-            <section className="container mx-auto px-6 mb-32">
-                <div className="bg-primary rounded-[4rem] p-12 md:p-20 text-white relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-32 -mt-32" />
-                    <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                        <div className="space-y-8">
-                            <h2 className="text-4xl md:text-5xl font-black leading-tight">Technology <br />Requirements</h2>
-                            <p className="text-white/80 text-lg font-medium">To ensure a smooth learning journey, we recommend the following setup:</p>
-
-                            <div className="space-y-4">
-                                {[
-                                    { icon: <Monitor size={20} />, label: "Stable Internet Connection (2Mbps+)" },
-                                    { icon: <Smartphone size={20} />, label: "Laptop, Tablet or Smartphone" },
-                                    { icon: <CheckCircle2 size={20} />, label: "Clear Webcam & Microphone" },
-                                    { icon: <Wifi size={20} />, label: "Zoom or Google Meet App" },
-                                ].map((item, i) => (
-                                    <div key={i} className="flex items-center gap-4 bg-white/10 p-4 rounded-2xl border border-white/10">
-                                        <div className="text-white">{item.icon}</div>
-                                        <span className="font-bold">{item.label}</span>
+                            {/* Fake UI Elements */}
+                            <div className="absolute bottom-10 left-10 flex gap-3">
+                                {[1, 2, 3].map((i) => (
+                                    <div key={i} className="w-12 h-12 rounded-2xl bg-zinc-800 border-2 border-white/10 flex items-center justify-center text-white/20">
+                                        <Users size={20} />
                                     </div>
                                 ))}
+                                <div className="w-12 h-12 rounded-2xl bg-zeeque-gradient border-2 border-white/10 flex items-center justify-center text-xs font-black text-white">
+                                    +24
+                                </div>
+                            </div>
+                            <div className="absolute bottom-10 right-10 flex gap-6 text-white/50">
+                                <Mic size={24} />
+                                <Video size={24} />
+                                <Wifi size={24} />
                             </div>
                         </div>
+                    </motion.div>
+                </div>
+            </section>
 
-                        <div className="grid grid-cols-2 gap-6">
-                            <div className="aspect-square bg-white/10 rounded-[3rem] border border-white/20 flex flex-col items-center justify-center p-8 text-center space-y-4">
-                                <Smartphone size={48} className="text-sky-300" />
-                                <span className="font-black">Smartphone</span>
-                            </div>
-                            <div className="aspect-square bg-white/10 rounded-[3rem] border border-white/20 flex flex-col items-center justify-center p-8 text-center space-y-4 mt-12">
-                                <Tablet size={48} className="text-sky-300" />
-                                <span className="font-black">Tablet / iPad</span>
-                            </div>
-                            <div className="aspect-square bg-white/10 rounded-[3rem] border border-white/20 flex flex-col items-center justify-center p-8 text-center space-y-4 -mt-12">
-                                <Monitor size={48} className="text-sky-300" />
-                                <span className="font-black">Laptop / PC</span>
-                            </div>
-                            <div className="aspect-square bg-white/10 rounded-[3rem] border border-white/20 flex flex-col items-center justify-center p-8 text-center space-y-4">
-                                <Wifi size={48} className="text-sky-300" />
-                                <span className="font-black">4G / Wifi</span>
-                            </div>
-                        </div>
+            {/* 2. TECHNOLOGY GRID SECTION */}
+            <section className="py-32 bg-zinc-50 dark:bg-zinc-900/30 relative">
+                <div className="container-fluid relative z-10">
+                    <div className="text-center max-w-3xl mx-auto mb-20 space-y-6">
+                        <h2 className="text-5xl font-serif font-black bg-clip-text text-transparent bg-zeeque-gradient">Learn on Any Device</h2>
+                        <p className="text-xl text-foreground/60 font-medium">
+                            Our platform is optimized for seamless learning across all your devices. No complex software installation required.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+                        {techStack.map((item, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.1 }}
+                                whileHover={{ y: -10 }}
+                                className="bg-white dark:bg-[#121212] p-10 rounded-[3rem] shadow-2xl shadow-zinc-200 dark:shadow-none flex flex-col items-center text-center group border border-zinc-200 dark:border-violet-500/20 transition-all duration-500"
+                            >
+                                <div className={`w-24 h-24 ${item.color} rounded-[2rem] flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-sm`}>
+                                    {item.icon}
+                                </div>
+                                <h3 className="text-2xl font-black text-foreground mb-4 tracking-tight">{item.title}</h3>
+                                <p className="text-foreground/60 font-medium leading-relaxed">
+                                    {item.description}
+                                </p>
+                            </motion.div>
+                        ))}
                     </div>
                 </div>
             </section>
 
-            {/* FAQ Accordion Section */}
-            <section className="container mx-auto px-6 mb-32">
-                <div className="max-w-3xl mx-auto space-y-12">
-                    <div className="text-center space-y-4">
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary font-bold text-xs uppercase tracking-widest">
-                            <HelpCircle size={14} /> Questions?
+            {/* 3. FAQ ACCORDION SECTION */}
+            <section className="py-32 relative overflow-hidden">
+                <div className="container-fluid max-w-4xl relative z-10">
+                    <div className="text-center mb-20 space-y-6">
+                        <div className="inline-flex items-center justify-center w-16 h-16 rounded-3xl bg-violet-50 dark:bg-violet-900/10 text-zeeque-violet mb-4 shadow-sm border border-border">
+                            <HelpCircle size={32} />
                         </div>
-                        <h2 className="text-4xl font-black">Frequently Asked Questions</h2>
+                        <h2 className="text-5xl font-serif font-black bg-clip-text text-transparent bg-zeeque-gradient">Experience Details</h2>
+                        <p className="text-xl text-foreground/60 font-medium">Everything you need to know about the ZeeQue Plus method.</p>
                     </div>
 
-                    <Accordion type="single" collapsible className="space-y-4">
-                        {faqItems.map((item, i) => (
+                    <Accordion type="single" collapsible className="w-full space-y-6">
+                        {faqs.map((faq, index) => (
                             <AccordionItem
-                                key={i}
-                                value={`item-${i}`}
-                                className="border-2 border-zinc-100 rounded-3xl px-6 bg-white overflow-hidden data-[state=open]:border-primary/50 transition-all shadow-sm"
+                                key={index}
+                                value={`item-${index}`}
+                                className="border border-zinc-200 dark:border-violet-500/20 rounded-[2rem] px-8 bg-white dark:bg-[#121212] data-[state=open]:border-zeeque-violet data-[state=open]:shadow-2xl data-[state=open]:shadow-violet-500/10 transition-all duration-500 overflow-hidden"
                             >
-                                <AccordionTrigger className="hover:no-underline py-6">
-                                    <span className="text-lg font-black text-left">{item.question}</span>
+                                <AccordionTrigger className="text-xl font-black text-left py-8 hover:no-underline hover:text-zeeque-violet transition-colors">
+                                    {faq.question}
                                 </AccordionTrigger>
-                                <AccordionContent className="pb-6 text-foreground/60 font-medium text-base leading-relaxed">
-                                    {item.answer}
+                                <AccordionContent className="text-foreground/60 text-lg font-medium leading-relaxed pb-8">
+                                    <div className="h-px bg-border w-full mb-6" />
+                                    {faq.answer}
                                 </AccordionContent>
                             </AccordionItem>
                         ))}
                     </Accordion>
-                </div>
-            </section>
 
-            {/* Final CTA */}
-            <section className="container mx-auto px-6">
-                <div className="bg-zinc-50 rounded-[3rem] p-12 text-center space-y-8">
-                    <h2 className="text-3xl md:text-4xl font-black">Ready to experience it?</h2>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <button className="bg-primary text-white px-8 py-4 rounded-2xl font-black text-lg hover:scale-105 transition-transform shadow-lg shadow-primary/20">
-                            Book a Trial Class
-                        </button>
-                        <button className="bg-white border-2 border-zinc-200 px-8 py-4 rounded-2xl font-black text-lg hover:bg-zinc-50 transition-colors">
-                            View Sample Batch
-                        </button>
+                    <div className="mt-20 text-center space-y-8">
+                        <p className="text-foreground/40 font-black uppercase tracking-widest text-sm">Have more questions?</p>
+                        <Button
+                            asChild
+                            className="bg-zeeque-gradient text-white px-12 py-8 rounded-[2rem] font-black text-xl hover:scale-110 dark:hover:brightness-110 active:scale-95 transition-all shadow-2xl shadow-violet-500/20"
+                        >
+                            <Link href="/contact" className="flex items-center gap-3">
+                                Contact Support
+                                <ArrowRight size={24} />
+                            </Link>
+                        </Button>
                     </div>
                 </div>
             </section>

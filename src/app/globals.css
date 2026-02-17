@@ -2,13 +2,16 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-lexend), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-lexend), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
+  --font-mono: var(--font-lexend), ui-monospace, SFMono-Regular, monospace;
 
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
@@ -19,6 +22,10 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+
+  --color-zeeque-violet: #5B21B6;
+  --color-zeeque-deep: #4C1D95;
+  --color-zeeque-indigo: #6366F1;
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -50,70 +57,129 @@
 }
 
 :root {
-  /* White Theme (Default) */
-  --background: oklch(0.994 0.002 95);
-  /* Warm White #fefefe */
-  --foreground: oklch(0.273 0.006 285);
-  /* Charcoal #333333 */
+  /* ZeeQue Theme - Light Mode (Warm White) */
+  --background: #fefefe;
+  --foreground: #1a1a1a;
 
-  --primary: oklch(0.546 0.245 262.88);
-  /* Royal Blue #2563eb */
-  --primary-foreground: oklch(0.994 0.002 95);
+  /* Primary: ZeeQue-Violet */
+  --primary: #5B21B6;
+  --primary-foreground: #FFFFFF;
 
-  --secondary: oklch(0.85 0.1 230);
-  /* Light Sky Blue */
-  --secondary-foreground: oklch(0.546 0.245 262.88);
+  --secondary: #f3e8ff;
+  --secondary-foreground: #5B21B6;
 
-  --accent: oklch(0.696 0.17 236);
-  /* Sky Blue #0ea5e9 */
-  --accent-foreground: oklch(0.994 0.002 95);
+  --accent: #f5f3ff;
+  --accent-foreground: #4C1D95;
 
-  --radius: 1.25rem;
-  /* Playful rounded corners */
+  --radius: 1rem;
 
-  --card: oklch(1 0 0);
-  --card-foreground: var(--foreground);
-  --popover: oklch(1 0 0);
-  --popover-foreground: var(--foreground);
-  --muted: oklch(0.95 0.01 230);
-  --muted-foreground: oklch(0.5 0.01 230);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.9 0.01 230);
-  --input: oklch(0.9 0.01 230);
-  --ring: oklch(0.546 0.245 262.88);
+  --card: #ffffff;
+  --card-foreground: #1a1a1a;
+  --popover: #ffffff;
+  --popover-foreground: #1a1a1a;
+
+  --muted: #f3f4f6;
+  --muted-foreground: #6b7280;
+
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --ring: #5B21B6;
 }
 
 .dark {
-  /* Blue Theme (Dark Mode) - Using Royal Blue as background for a vibrant vibe */
-  --background: oklch(0.3 0.1 262);
-  --foreground: oklch(0.994 0.002 95);
+  /* ZeeQue Theme - Dark Mode (Obsidian) */
+  --background: #0a0a0a;
+  --foreground: #f2f2f2;
 
-  --primary: oklch(0.7 0.15 236);
-  --primary-foreground: oklch(0.3 0.1 262);
+  /* Primary: Glowing Violet for Dark Mode */
+  --primary: #8B5CF6;
+  /* Lighter, glowing violet */
+  --primary-foreground: #FFFFFF;
 
-  --secondary: oklch(0.4 0.15 262);
-  --secondary-foreground: oklch(0.994 0.002 95);
+  --secondary: #1e1b4b;
+  --secondary-foreground: #a78bfa;
 
-  --accent: oklch(0.6 0.22 262);
-  --accent-foreground: oklch(0.994 0.002 95);
+  --accent: #2e1065;
+  --accent-foreground: #e9d5ff;
 
-  --card: oklch(0.35 0.1 262);
-  --card-foreground: var(--foreground);
-  --popover: oklch(0.35 0.1 262);
-  --popover-foreground: var(--foreground);
-  --muted: oklch(0.4 0.05 262);
-  --muted-foreground: oklch(0.8 0.05 262);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.7 0.15 236);
+  --card: #111111;
+  /* Slightly lighter than bg */
+  --card-foreground: #f2f2f2;
+
+  --popover: #111111;
+  --popover-foreground: #f2f2f2;
+
+  --muted: #1f2937;
+  --muted-foreground: #9ca3af;
+
+  --destructive: #7f1d1d;
+  --destructive-foreground: #fecaca;
+
+  --border: #4C1D95;
+  /* Deep violet border */
+  --input: #4C1D95;
+  --ring: #8B5CF6;
+  /* Glowing pop */
+}
+
+@layer utilities {
+  .glass-nav {
+    @apply bg-white/70 dark:bg-black/70 backdrop-blur-md border-b border-[#5B21B6]/20 dark:border-[#8B5CF6]/20;
+  }
+
+  .bg-zeeque-gradient {
+    @apply bg-gradient-to-r from-[var(--color-zeeque-deep)] to-[var(--color-zeeque-indigo)];
+  }
+
+  /* Fluid Container */
+  .container-fluid {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50 transition-all duration-300;
+    @apply border-border outline-ring/50 transition-colors duration-300;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+
+  /* Custom Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-zinc-200 dark:bg-zinc-800 rounded-full border-[3px] border-background;
+    transition: background 0.3s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-zeeque-violet;
+  }
+
+  /* Firefox Scrollbar Support */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-zeeque-violet) var(--background);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif;
   }
 }

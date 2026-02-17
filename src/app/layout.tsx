@@ -1,12 +1,21 @@
 import type { Metadata } from "next";
-import { Lexend } from "next/font/google";
+import { Playfair_Display, Inter } from "next/font/google"; // Sophisticated Serif & Clean Sans-serif
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { ThemeProvider } from "@/components/theme-provider";
+import BackgroundShapes from "@/components/BackgroundShapes";
 
-const lexend = Lexend({
-  variable: "--font-lexend",
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -20,22 +29,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${lexend.variable} font-sans antialiased bg-background text-foreground min-h-screen flex flex-col relative overflow-x-hidden`}
+        className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-background text-foreground min-h-screen flex flex-col relative overflow-x-hidden`}
+        suppressHydrationWarning
       >
-        {/* Playful organic background shapes */}
-        <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-          <div className="absolute top-[10%] -left-[5%] w-[30%] h-[30%] bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob" />
-          <div className="absolute top-[40%] -right-[10%] w-[40%] h-[40%] bg-sky-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-2000" />
-          <div className="absolute -bottom-[10%] left-[20%] w-[35%] h-[35%] bg-blue-50 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-4000" />
-        </div>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <BackgroundShapes />
 
-        <Navbar />
-        <main className="flex-grow">
-          {children}
-        </main>
-        <Footer />
+          <Navbar />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
