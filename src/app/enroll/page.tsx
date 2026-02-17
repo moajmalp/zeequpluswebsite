@@ -21,7 +21,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Checkbox } from "@/components/ui/checkbox"; // Assuming Checkbox exists or using generic input
+import { Checkbox } from "@/components/ui/checkbox";
 import { Progress } from "@/components/ui/progress";
 import { Card, CardContent } from "@/components/ui/card";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
@@ -60,7 +60,11 @@ const programSchema = z.object({
     preferredTiming: z.string().min(1, "Please select a batch timing"),
 });
 
-const enrollSchema = studentSchema.merge(parentSchema).merge(programSchema);
+const enrollSchema = z.object({
+    ...studentSchema.shape,
+    ...parentSchema.shape,
+    ...programSchema.shape,
+});
 
 type EnrollFormData = z.infer<typeof enrollSchema>;
 
@@ -249,7 +253,7 @@ export default function EnrollPage() {
                                                                         !watch("dob") && "text-muted-foreground"
                                                                     )}
                                                                 >
-                                                                    <Calendar size={18} className="mr-3 text-zeeque-violet" />
+                                                                    <CalendarIcon size={18} className="mr-3 text-zeeque-violet" />
                                                                     {watch("dob") ? format(new Date(watch("dob")), "PPP") : "Select date"}
                                                                 </Button>
                                                             </PopoverTrigger>
