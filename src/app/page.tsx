@@ -248,18 +248,18 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="md:col-span-2 group relative overflow-hidden p-10 md:p-14 rounded-[4rem] bg-zinc-900/40 border border-white/5 backdrop-blur-xl transition-all duration-700 hover:border-violet-500/30 hover:shadow-[0_0_50px_rgba(139,92,246,0.1)]"
+                className="md:col-span-2 group relative overflow-hidden p-10 md:p-14 rounded-[4rem] bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200 dark:border-white/5 backdrop-blur-xl transition-all duration-700 hover:border-violet-500/30 hover:shadow-[0_0_50px_rgba(139,92,246,0.1)]"
               >
                 <div className="relative z-10 flex flex-col md:flex-row gap-12 items-center">
                   <div className="w-28 h-28 bg-zeeque-gradient p-0.5 rounded-[2rem] shrink-0 rotate-3 group-hover:rotate-6 transition-transform duration-500">
-                    <div className="w-full h-full bg-zinc-900 rounded-[1.95rem] flex items-center justify-center text-white">
+                    <div className="w-full h-full bg-white dark:bg-zinc-900 rounded-[1.95rem] flex items-center justify-center text-zeeque-violet dark:text-white">
                       <GraduationCap size={44} />
                     </div>
                   </div>
                   <div className="space-y-6 text-center md:text-left">
                     <span className="px-4 py-1 rounded-full bg-violet-500/10 text-zeeque-violet text-[10px] font-black uppercase tracking-[0.2em]">Academic Integration</span>
-                    <h3 className="text-4xl md:text-5xl font-black text-white tracking-tight">Classes 1 to 10</h3>
-                    <p className="text-lg text-zinc-400 font-medium leading-relaxed max-w-lg">
+                    <h3 className="text-4xl md:text-5xl font-black text-foreground dark:text-white tracking-tight">Classes 1 to 10</h3>
+                    <p className="text-lg text-foreground/60 dark:text-zinc-400 font-medium leading-relaxed max-w-lg">
                       Tailored learning paths for school-going children across any syllabus. We bridge the gap between academic pressure and spiritual grounding.
                     </p>
                   </div>
@@ -274,15 +274,15 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                className="group relative overflow-hidden p-10 rounded-[3.5rem] bg-zinc-900/30 border border-white/5 backdrop-blur-md transition-all duration-700 hover:border-blue-500/20 hover:bg-zinc-900/50"
+                className="group relative overflow-hidden p-10 rounded-[3.5rem] bg-zinc-50 dark:bg-zinc-900/30 border border-zinc-200 dark:border-white/5 backdrop-blur-md transition-all duration-700 hover:border-blue-500/20 hover:bg-zinc-100 dark:hover:bg-zinc-900/50"
               >
                 <div className="relative z-10 space-y-8">
                   <div className="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-400 group-hover:scale-110 group-hover:bg-blue-500 group-hover:text-white transition-all duration-500 shadow-inner">
                     <Users size={28} />
                   </div>
                   <div className="space-y-4">
-                    <h4 className="text-2xl font-black text-white">Partnered Parents</h4>
-                    <p className="text-zinc-500 font-medium leading-relaxed">
+                    <h4 className="text-2xl font-black text-foreground dark:text-white">Partnered Parents</h4>
+                    <p className="text-foreground/60 dark:text-zinc-500 font-medium leading-relaxed">
                       For parents seeking a consistent, guided Quran journey that breathes alongside regular schooling.
                     </p>
                   </div>
@@ -298,15 +298,15 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
-                className="group relative overflow-hidden p-10 rounded-[3.5rem] bg-zinc-900/30 border border-white/5 backdrop-blur-md transition-all duration-700 hover:border-emerald-500/20 hover:bg-zinc-900/50"
+                className="group relative overflow-hidden p-10 rounded-[3.5rem] bg-zinc-50 dark:bg-zinc-900/30 border border-zinc-200 dark:border-white/5 backdrop-blur-md transition-all duration-700 hover:border-emerald-500/20 hover:bg-zinc-100 dark:hover:bg-zinc-900/50"
               >
                 <div className="relative z-10 space-y-8">
                   <div className="w-16 h-16 bg-emerald-500/10 rounded-2xl flex items-center justify-center text-emerald-400 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-500 shadow-inner">
                     <Sparkles size={28} />
                   </div>
                   <div className="space-y-4">
-                    <h4 className="text-2xl font-black text-white">Dedicated Hearts</h4>
-                    <p className="text-zinc-500 font-medium leading-relaxed">
+                    <h4 className="text-2xl font-black text-foreground dark:text-white">Dedicated Hearts</h4>
+                    <p className="text-foreground/60 dark:text-zinc-500 font-medium leading-relaxed">
                       Students who thrive on regularity, expert correction, and a sense of community over casual learning.
                     </p>
                   </div>

@@ -29,7 +29,7 @@ const Footer = () => {
                                 <Link
                                     key={i}
                                     href="#"
-                                    className="w-12 h-12 bg-violet-50 dark:bg-violet-900/10 text-zeeque-violet dark:text-violet-400 rounded-2xl flex items-center justify-center hover:bg-zeeque-gradient hover:text-white transition-all duration-300 shadow-sm"
+                                    className="w-12 h-12 bg-violet-50 dark:bg-violet-900/10 text-zeeque-violet dark:text-violet-400 rounded-2xl flex items-center justify-center hover:bg-zeeque-gradient hover:!text-white transition-all duration-300 shadow-sm"
                                 >
                                     <Icon size={22} />
                                 </Link>

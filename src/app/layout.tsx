@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   title: "ZeeQue Plus | Online Qur'an Course",
   description: "A structured, step-by-step Qur'an learning journey for school-going children.",
   icons: {
-    icon: "/faveicon_zeequplus.ico",
+    icon: "/logo.ico",
   },
 };
 

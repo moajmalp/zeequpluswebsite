@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "next-themes";
@@ -40,12 +41,15 @@ const Navbar = () => {
 
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2 group relative z-50">
-                    <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white font-bold text-xl group-hover:rotate-12 transition-transform shadow-lg shadow-violet-500/30">
-                        Z
+                    <div className="relative w-18 h-18 md:w-22 md:h-22 group-hover:rotate-6 transition-transform duration-500">
+                        <Image
+                            src="/faveicon_zeequplus.ico"
+                            alt="ZeeQue Plus Logo"
+                            fill
+                            className="object-contain"
+                            priority
+                        />
                     </div>
-                    <span className="text-2xl font-black bg-clip-text text-transparent bg-zeeque-gradient tracking-tight">
-                        ZeeQue Plus
-                    </span>
                 </Link>
 
                 {/* Desktop Navigation */}

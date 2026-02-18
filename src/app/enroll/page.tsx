@@ -184,33 +184,46 @@ export default function EnrollPage() {
                 </div>
 
                 {/* Progress Journey */}
-                <div className="space-y-6">
-                    <div className="flex justify-between items-center px-4 md:px-12">
-                        {STEPS.map((step, index) => (
-                            <div key={step.id} className="flex flex-col items-center gap-3 relative z-10">
-                                <div
-                                    className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-500 border-4 ${index <= currentStep
-                                        ? "bg-zeeque-violet text-white border-violet-100 dark:border-violet-800 shadow-xl shadow-violet-200 dark:shadow-violet-900/20"
-                                        : "bg-white dark:bg-zinc-800 text-gray-300 dark:text-zinc-600 border-zinc-100 dark:border-zinc-700"
-                                        }`}
-                                >
-                                    {index < currentStep ? <CheckCircle2 size={24} /> : step.icon}
-                                </div>
-                                <span className={`text-xs uppercase font-bold tracking-widest hidden sm:block ${index <= currentStep ? "text-zeeque-violet" : "text-gray-400 dark:text-zinc-600"
-                                    }`}>
-                                    {step.title}
-                                </span>
-                            </div>
-                        ))}
-                    </div>
-                    {/* Custom Progress Bar with Gradient */}
-                    <div className="relative h-3 bg-zinc-100 dark:bg-zinc-800 rounded-full mx-4 md:mx-12 -mt-10 mb-10 -z-0">
+                <div className="relative pt-12 pb-10">
+                    {/* Background Bar */}
+                    <div className="absolute bottom-10 left-0 w-full h-12 bg-zinc-100 dark:bg-zinc-800 rounded-full overflow-hidden shadow-inner">
                         <motion.div
-                            className="absolute top-0 left-0 h-full rounded-full bg-zeeque-gradient shadow-[0_0_15px_rgba(139,92,246,0.5)]"
+                            className="h-full bg-zeeque-gradient shadow-[0_0_20px_rgba(139,92,246,0.3)]"
                             initial={{ width: "0%" }}
                             animate={{ width: `${(currentStep / (STEPS.length - 1)) * 100}%` }}
                             transition={{ duration: 0.5, ease: "easeInOut" }}
                         />
+                    </div>
+
+                    {/* Step Labels and Icons */}
+                    <div className="relative flex justify-between items-center px-4 md:px-12">
+                        {STEPS.map((step, index) => (
+                            <div key={step.id} className="flex flex-col items-center relative z-10 w-full">
+                                {/* Icon Capsule */}
+                                <div
+                                    className={cn(
+                                        "w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-500 border-4 z-20 mb-12",
+                                        index <= currentStep
+                                            ? "bg-zeeque-violet text-white border-violet-100 dark:border-violet-800 shadow-xl shadow-violet-200 dark:shadow-violet-900/40"
+                                            : "bg-white dark:bg-zinc-800 text-gray-300 dark:text-zinc-600 border-zinc-100 dark:border-zinc-700"
+                                    )}
+                                >
+                                    {index < currentStep ? <CheckCircle2 size={24} /> : step.icon}
+                                </div>
+
+                                {/* Centered Label */}
+                                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-12 flex items-center justify-center w-max pointer-events-none">
+                                    <span className={cn(
+                                        "text-[10px] md:text-xs uppercase font-black tracking-[0.2em] transition-all duration-500",
+                                        index <= currentStep
+                                            ? "text-white"
+                                            : "text-zinc-400 dark:text-zinc-500"
+                                    )}>
+                                        {step.title}
+                                    </span>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
 
