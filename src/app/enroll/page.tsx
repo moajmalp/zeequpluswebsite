@@ -386,25 +386,32 @@ export default function EnrollPage() {
                                     {currentStep === 2 && (
                                         <div className="space-y-10">
 
-                                            {/* Class Selection */}
+                                            {/* Custom Program Selection */}
                                             <div className="space-y-4">
-                                                <Label className="text-xl font-black text-foreground">Select Class</Label>
+                                                <Label className="text-xs font-black text-foreground/40 uppercase tracking-[0.2em] ml-2">Interested Program</Label>
                                                 <Select
                                                     value={watchClass}
                                                     onValueChange={(val) => setValue("targetClass", val)}
                                                 >
-                                                    <SelectTrigger className="h-20 rounded-3xl bg-zinc-50 dark:bg-zinc-900 border-2 border-zinc-100 dark:border-zinc-800 focus:ring-2 focus:ring-zeeque-violet px-8 text-xl font-bold">
-                                                        <SelectValue placeholder="Choose a class" />
+                                                    <SelectTrigger className="h-20 rounded-[2rem] bg-zinc-950 border-2 border-violet-500/30 focus:border-zeeque-violet focus:ring-4 focus:ring-violet-500/10 px-8 text-xl font-bold text-white transition-all duration-300">
+                                                        <SelectValue placeholder="Select a program" />
                                                     </SelectTrigger>
-                                                    <SelectContent className="rounded-2xl border-zinc-100 dark:border-violet-500/20 bg-white dark:bg-[#121212]">
-                                                        {Array.from({ length: 10 }, (_, i) => {
-                                                            const classNum = `${i + 1}`;
-                                                            return (
-                                                                <SelectItem key={classNum} value={classNum} className="py-4 text-lg font-bold focus:bg-violet-50 dark:focus:bg-violet-900/20">
-                                                                    Class {classNum}
-                                                                </SelectItem>
-                                                            );
-                                                        })}
+                                                    <SelectContent className="rounded-2xl border-2 border-violet-500/20 bg-zinc-950 p-2 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+                                                        {[
+                                                            "Classes 1-3 (Foundation)",
+                                                            "Classes 4-7 (Intermediate)",
+                                                            "Classes 8-10 (Advanced)",
+                                                            "Dedicated Hifz Program",
+                                                            "Vacation Specials"
+                                                        ].map((program) => (
+                                                            <SelectItem
+                                                                key={program}
+                                                                value={program}
+                                                                className="py-4 px-6 text-lg font-bold text-zinc-400 focus:bg-blue-400 focus:text-zinc-950 rounded-xl transition-colors cursor-pointer"
+                                                            >
+                                                                {program}
+                                                            </SelectItem>
+                                                        ))}
                                                     </SelectContent>
                                                 </Select>
                                                 {errors.targetClass && <p className="text-red-500 dark:text-red-400 text-sm font-bold ml-2">{errors.targetClass.message}</p>}

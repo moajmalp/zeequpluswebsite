@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight,
   BookOpen,
@@ -109,21 +110,33 @@ export default function Home() {
               </motion.div>
             </div>
 
-            {/* Right Column: Visual */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="relative w-full aspect-square"
+              className="relative w-full aspect-square group"
             >
-              <div className="absolute inset-0 rounded-[4rem] overflow-hidden shadow-2xl shadow-violet-500/10 border-8 border-white/50 dark:border-zinc-900/50 bg-zinc-50 dark:bg-zinc-900">
-                <div className="w-full h-full bg-gradient-to-br from-violet-100/50 to-indigo-50/50 dark:from-violet-900/20 dark:to-indigo-900/20 flex items-center justify-center text-violet-300">
-                  <GraduationCap className="w-48 h-48 opacity-10" />
-                </div>
+              {/* Premium Glow Background */}
+              <div className="absolute inset-0 bg-zeeque-gradient opacity-20 blur-[100px] rounded-full animate-pulse z-0" />
+
+              <div className="relative z-10 w-full h-full rounded-[4rem] overflow-hidden shadow-2xl shadow-violet-500/10 border-8 border-white/50 dark:border-zinc-900/50 bg-zinc-50 dark:bg-zinc-900">
+                <div className="absolute inset-0 bg-gradient-to-br from-violet-100/30 to-indigo-50/30 dark:from-violet-900/10 dark:to-indigo-900/10 z-10" />
+                <Image
+                  src="/hero_image.png"
+                  alt="ZeeQue Plus Hero"
+                  fill
+                  className="object-cover transition-all duration-1000 group-hover:scale-110 group-hover:rotate-1"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/60 via-transparent to-transparent z-10 opacity-60 group-hover:opacity-40 transition-opacity" />
               </div>
 
+              {/* Decorative Rings */}
+              <div className="absolute -inset-4 border border-violet-500/10 rounded-[4.5rem] z-0 animate-spin-slow" />
+              <div className="absolute -inset-8 border border-white/5 rounded-[5rem] z-0 animate-spin-slower" />
+
               {/* Floating Badge */}
-              <div className="absolute -bottom-8 -left-8 bg-background dark:bg-zinc-900 p-6 rounded-[2rem] shadow-2xl border border-violet-100 dark:border-violet-900/30 hidden lg:flex items-center gap-4 animate-bounce duration-[3000ms]">
+              <div className="absolute -bottom-8 -left-8 bg-background dark:bg-zinc-900 p-6 rounded-[2rem] shadow-2xl border border-violet-100 dark:border-violet-900/30 hidden lg:flex items-center gap-4 animate-bounce duration-[3000ms] z-20">
                 <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/20 rounded-2xl flex items-center justify-center text-emerald-600">
                   <CheckCircle2 size={24} />
                 </div>
@@ -186,8 +199,131 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 2.5 WHO IS THIS FOR SECTION - CREATIVE REDESIGN */}
+      <section className="py-40 relative overflow-hidden bg-background">
+        {/* Background Decorative Elements */}
+        <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+          <div className="absolute top-1/4 -left-20 w-96 h-96 bg-violet-600/10 blur-[120px] rounded-full animate-pulse" />
+          <div className="absolute bottom-1/4 -right-20 w-80 h-80 bg-blue-600/10 blur-[120px] rounded-full delay-1000 animate-pulse" />
+        </div>
+
+        <div className="container-fluid relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+
+            {/* Sticky Header Side */}
+            <div className="lg:col-span-4 lg:sticky lg:top-32 space-y-8">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="space-y-6"
+              >
+                <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-violet-500/10 border border-violet-500/20 text-zeeque-violet text-xs font-black uppercase tracking-[0.2em]">
+                  <Target size={14} className="animate-spin-slow" /> Target Audience
+                </div>
+                <h2 className="text-5xl md:text-7xl font-serif font-black tracking-tighter leading-[1.05] text-foreground">
+                  Who Is This <br />
+                  <span className="bg-clip-text text-transparent bg-zeeque-gradient">Built For?</span>
+                </h2>
+                <p className="text-xl text-foreground/50 font-medium leading-relaxed max-w-sm">
+                  ZeeQue Plus isn&apos;t just another online class. It&apos;s a dedicated ecosystem for those who prioritize spiritual and academic excellence.
+                </p>
+
+                <div className="pt-8 hidden lg:block">
+                  <div className="flex items-center gap-4 text-zeeque-violet group cursor-pointer">
+                    <div className="w-12 h-12 rounded-full border border-violet-500/30 flex items-center justify-center group-hover:bg-zeeque-violet group-hover:text-white transition-all duration-500">
+                      <ArrowRight size={20} />
+                    </div>
+                    <span className="font-black text-sm uppercase tracking-widest">Explore our Philosophy</span>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Creative Bento Grid Side */}
+            <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+
+              {/* Feature 1: The Primary Focus */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="md:col-span-2 group relative overflow-hidden p-10 md:p-14 rounded-[4rem] bg-zinc-900/40 border border-white/5 backdrop-blur-xl transition-all duration-700 hover:border-violet-500/30 hover:shadow-[0_0_50px_rgba(139,92,246,0.1)]"
+              >
+                <div className="relative z-10 flex flex-col md:flex-row gap-12 items-center">
+                  <div className="w-28 h-28 bg-zeeque-gradient p-0.5 rounded-[2rem] shrink-0 rotate-3 group-hover:rotate-6 transition-transform duration-500">
+                    <div className="w-full h-full bg-zinc-900 rounded-[1.95rem] flex items-center justify-center text-white">
+                      <GraduationCap size={44} />
+                    </div>
+                  </div>
+                  <div className="space-y-6 text-center md:text-left">
+                    <span className="px-4 py-1 rounded-full bg-violet-500/10 text-zeeque-violet text-[10px] font-black uppercase tracking-[0.2em]">Academic Integration</span>
+                    <h3 className="text-4xl md:text-5xl font-black text-white tracking-tight">Classes 1 to 10</h3>
+                    <p className="text-lg text-zinc-400 font-medium leading-relaxed max-w-lg">
+                      Tailored learning paths for school-going children across any syllabus. We bridge the gap between academic pressure and spiritual grounding.
+                    </p>
+                  </div>
+                </div>
+                {/* Decorative mesh */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-violet-600/5 blur-[80px] rounded-full -translate-y-1/2 translate-x-1/2" />
+              </motion.div>
+
+              {/* Feature 2: For Parents */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="group relative overflow-hidden p-10 rounded-[3.5rem] bg-zinc-900/30 border border-white/5 backdrop-blur-md transition-all duration-700 hover:border-blue-500/20 hover:bg-zinc-900/50"
+              >
+                <div className="relative z-10 space-y-8">
+                  <div className="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-400 group-hover:scale-110 group-hover:bg-blue-500 group-hover:text-white transition-all duration-500 shadow-inner">
+                    <Users size={28} />
+                  </div>
+                  <div className="space-y-4">
+                    <h4 className="text-2xl font-black text-white">Partnered Parents</h4>
+                    <p className="text-zinc-500 font-medium leading-relaxed">
+                      For parents seeking a consistent, guided Quran journey that breathes alongside regular schooling.
+                    </p>
+                  </div>
+                  <div className="pt-2">
+                    <div className="h-1 w-12 bg-blue-500/30 rounded-full group-hover:w-24 transition-all duration-700" />
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Feature 3: For Students */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+                className="group relative overflow-hidden p-10 rounded-[3.5rem] bg-zinc-900/30 border border-white/5 backdrop-blur-md transition-all duration-700 hover:border-emerald-500/20 hover:bg-zinc-900/50"
+              >
+                <div className="relative z-10 space-y-8">
+                  <div className="w-16 h-16 bg-emerald-500/10 rounded-2xl flex items-center justify-center text-emerald-400 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-500 shadow-inner">
+                    <Sparkles size={28} />
+                  </div>
+                  <div className="space-y-4">
+                    <h4 className="text-2xl font-black text-white">Dedicated Hearts</h4>
+                    <p className="text-zinc-500 font-medium leading-relaxed">
+                      Students who thrive on regularity, expert correction, and a sense of community over casual learning.
+                    </p>
+                  </div>
+                  <div className="pt-2">
+                    <div className="h-1 w-12 bg-emerald-500/30 rounded-full group-hover:w-24 transition-all duration-700" />
+                  </div>
+                </div>
+              </motion.div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 3. OUTCOMES SECTION */}
       <section className="py-32 relative overflow-hidden">
+
         <div className="container-fluid relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-24">
             {/* Left: Content */}
@@ -278,8 +414,92 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 3.5 TRUST & CONTINUITY SECTION */}
+      <section className="py-32 bg-zinc-50 dark:bg-zinc-900/30 relative overflow-hidden">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-zinc-200 dark:via-zinc-800 to-transparent" />
+        <div className="container-fluid relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+
+            {/* Left: Content */}
+            <div className="space-y-10">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-900/10 border border-emerald-100 dark:border-emerald-800/20 text-emerald-600 text-xs font-black uppercase tracking-widest">
+                <Sparkles size={14} /> Trust & Continuity
+              </div>
+              <h2 className="text-5xl md:text-7xl font-serif font-black tracking-tight leading-[1.1]">Legacy of Learning.</h2>
+              <div className="space-y-6">
+                <p className="text-xl md:text-2xl text-foreground/60 leading-relaxed font-medium">
+                  Built on the foundational experience of <span className="text-zeeque-violet font-black underline decoration-violet-500/30 decoration-4 underline-offset-4">ZeeQue Preschool & Quran programs</span>.
+                </p>
+                <p className="text-lg md:text-xl text-foreground/50 leading-relaxed font-medium">
+                  We continue the same Quran-centric, child-friendly philosophy that has nurtured hundreds of young hearts — now made available online and optimized for school-aged children in <span className="text-foreground">Classes 1–10</span>.
+                </p>
+              </div>
+
+              <div className="pt-6 flex items-center gap-8">
+                <div className="flex -space-x-4">
+                  {[1, 2, 3, 4].map(i => (
+                    <div key={i} className="w-14 h-14 rounded-2xl border-4 border-white dark:border-zinc-900 bg-gradient-to-br from-violet-100 to-indigo-100 dark:from-violet-900/40 dark:to-indigo-900/40 flex items-center justify-center text-violet-400 font-bold text-xs ring-1 ring-black/5">
+                      {String.fromCharCode(64 + i)}
+                    </div>
+                  ))}
+                </div>
+                <div className="space-y-1">
+                  <p className="text-2xl font-black text-foreground">500+</p>
+                  <p className="text-xs font-bold text-foreground/40 uppercase tracking-widest">Trusted Families</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Testimonials Card Stack */}
+            <div className="relative space-y-6">
+              {[
+                {
+                  quote: "The transition from preschool to Plus was completely seamless. My daughter looks forward to her Quran time even with her school busy schedule.",
+                  author: "Dr. Farah J.",
+                  role: "Parent of Class 4 Student",
+                  initial: "F"
+                },
+                {
+                  quote: "Finally a program that balances academic rigor with spiritual growth. The regularity and correction they provide is unmatched for home learning.",
+                  author: "Abdullah K.",
+                  role: "Father of Class 7 Student",
+                  initial: "A"
+                }
+              ].map((t, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: 40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.2, duration: 0.6 }}
+                  className="bg-white dark:bg-[#121212] p-10 rounded-[3rem] shadow-2xl border border-zinc-100 dark:border-violet-500/10 relative group hover:border-zeeque-violet/30 transition-all duration-500"
+                >
+                  <div className="absolute -top-4 -left-4 w-12 h-12 bg-zeeque-gradient rounded-2xl flex items-center justify-center text-white text-3xl font-serif shadow-xl group-hover:rotate-12 transition-transform">“</div>
+                  <p className="text-xl font-medium text-foreground/80 mb-8 italic leading-relaxed tracking-tight">
+                    &quot;{t.quote}&quot;
+                  </p>
+                  <div className="flex items-center gap-5">
+                    <div className="w-12 h-12 rounded-2xl bg-violet-50 dark:bg-violet-900/20 flex items-center justify-center text-zeeque-violet font-black border border-violet-100 dark:border-violet-800/20 group-hover:bg-violet-100 dark:group-hover:bg-violet-900/40 transition-colors">
+                      {t.initial}
+                    </div>
+                    <div>
+                      <p className="font-black text-lg text-foreground tracking-tight">{t.author}</p>
+                      <p className="text-xs font-bold text-foreground/40 uppercase tracking-widest">{t.role}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+
+              {/* Background Glow */}
+              <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-violet-500/5 blur-[120px] rounded-full" />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 4. CTA SECTION */}
       <section className="py-32 relative overflow-hidden mx-6 mb-12">
+
         <div className="absolute inset-0 bg-zeeque-gradient rounded-[4rem]" />
         <div className="absolute top-0 right-0 w-[50%] h-[100%] bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
         <div className="container-fluid relative z-10 text-center space-y-12">

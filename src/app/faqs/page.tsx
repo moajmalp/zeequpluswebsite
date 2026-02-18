@@ -15,15 +15,15 @@ import { useState } from "react";
 
 const faqData = [
     {
-        category: "General Information",
+        category: "Joining & Beginners",
         questions: [
             {
                 q: "What is ZeeQue Plus?",
                 a: "ZeeQue Plus is an online Qur'anic education platform designed specifically for school-going children. We provide a structured, level-wise curriculum that includes Tajweed, Hifz, Akhlaq (Character building), and Adkar."
             },
             {
-                q: "Is it suitable for beginners?",
-                a: "Absolutely! We have a dedicated Foundation level (Classes 1-3) where we start from the very basics of Arabic letters and progress step-by-step."
+                q: "My child doesn't know any Arabic yet. Can they join?",
+                a: "Yes. Beginners are most welcome. We place students in levels based on a short evaluation."
             }
         ]
     },
@@ -31,25 +31,25 @@ const faqData = [
         category: "Classes & Schedule",
         questions: [
             {
-                q: "How are classes conducted?",
-                a: "Classes are held live on our interactive online platform. Each session is led by a certified teacher and includes real-time feedback and engagement."
+                q: "How many days a week are classes?",
+                a: "Classes are conducted on fixed days per week as per batch. Details will be shared in the admission communication."
             },
             {
-                q: "What is the duration of each class?",
-                a: "Class duration varies by level. Typically, sessions for younger children are 40-45 minutes, while older students have 1-hour sessions to ensure focus and retention."
+                q: "If we miss a class, what happens?",
+                a: "Teachers give revision points and practice tasks so the child can catch up. In some cases, a brief extra support slot may be arranged as per policy."
             }
         ]
     },
     {
-        category: "Teachers & Curriculum",
+        category: "Certification & Support",
         questions: [
+            {
+                q: "Do students get a certificate?",
+                a: "Yes. On completing the yearly syllabus and assessments, students receive a ZeeQue Plus level completion certificate."
+            },
             {
                 q: "Who are the teachers?",
                 a: "Our teachers are certified experts in Qur'anic sciences, handpicked for their experience and ability to engage with children in an online setting."
-            },
-            {
-                q: "Does the curriculum follow a specific school level?",
-                a: "Yes, our curriculum is mapped against school classes (1-10) to ensure the workload and complexity are age-appropriate."
             }
         ]
     }
