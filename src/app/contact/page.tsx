@@ -42,10 +42,12 @@ export default function ContactPage() {
                     <motion.h1
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
-                        className="text-6xl md:text-8xl font-serif font-black tracking-tight leading-[1.1] mb-8 bg-clip-text text-transparent bg-zeeque-gradient"
+                        className="text-6xl md:text-8xl font-serif font-black tracking-tight leading-[1.1] mb-8"
                     >
-                        Let&apos;s Start a <br />
-                        Conversation.
+                        <span className="bg-clip-text text-transparent bg-zeeque-gradient">
+                            Let&apos;s Start a <br />
+                            Conversation
+                        </span> ✉️
                     </motion.h1>
                     <p className="text-xl md:text-2xl text-foreground/60 font-medium max-w-2xl mx-auto leading-relaxed">
                         Have questions about our programs? Our friendly team is here to help your child embark on their spiritual journey.

@@ -157,7 +157,7 @@ export default function ExperiencePage() {
                     <div className="flex flex-col lg:flex-row gap-16 items-center">
                         <div className="w-full lg:w-1/2 space-y-8">
                             <h2 className="text-5xl md:text-7xl font-serif font-black leading-tight">
-                                Our <span className="italic text-zeeque-violet">Class Format</span>
+                                Our <span className="italic text-zeeque-violet">Class Format 🎓</span>
                             </h2>
                             <p className="text-xl text-foreground/60 font-medium leading-relaxed max-w-xl">
                                 We've designed our classes to be as effective as traditional one-on-one sessions, leveraging the best of digital learning.
@@ -248,7 +248,9 @@ export default function ExperiencePage() {
                         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-900/10 border border-indigo-100 dark:border-indigo-800/20 text-indigo-500 font-black text-xs uppercase tracking-widest">
                             Batch Options
                         </div>
-                        <h2 className="text-5xl font-serif font-black bg-clip-text text-transparent bg-zeeque-gradient">Tailored to Your Schedule</h2>
+                        <h2 className="text-5xl font-serif font-black">
+                            <span className="bg-clip-text text-transparent bg-zeeque-gradient">Tailored to Your Schedule</span> ⏰
+                        </h2>
                         <p className="text-xl text-foreground/60 font-medium">
                             We offer flexible batch structures to ensure that learning never clashes with school or other commitments.
                         </p>
@@ -296,7 +298,7 @@ export default function ExperiencePage() {
                                 Communication
                             </div>
                             <h2 className="text-5xl md:text-7xl font-serif font-black leading-tight">
-                                Parent <span className="italic text-zeeque-violet">Insights</span>
+                                Parent <span className="italic text-zeeque-violet">Insights 👨‍👩‍👧</span>
                             </h2>
                             <p className="text-xl text-foreground/60 font-medium leading-relaxed max-w-xl">
                                 We believe education is a partnership. Stay connected with your child's spiritual journey through our comprehensive reporting system.
@@ -379,7 +381,9 @@ export default function ExperiencePage() {
             <section className="py-32 bg-white dark:bg-background relative">
                 <div className="container-fluid relative z-10">
                     <div className="text-center max-w-3xl mx-auto mb-20 space-y-6">
-                        <h2 className="text-5xl font-serif font-black bg-clip-text text-transparent bg-zeeque-gradient">Learn on Any Device</h2>
+                        <h2 className="text-5xl font-serif font-black">
+                            <span className="bg-clip-text text-transparent bg-zeeque-gradient">Learn on Any Device</span> 🖥️
+                        </h2>
                         <p className="text-xl text-foreground/60 font-medium">
                             Our platform is optimized for seamless learning across all your devices. No complex software installation required.
                         </p>

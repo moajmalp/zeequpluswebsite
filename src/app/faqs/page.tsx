@@ -78,10 +78,12 @@ export default function FAQsPage() {
                     <motion.h1
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
-                        className="text-6xl md:text-8xl font-serif font-black tracking-tight leading-[1.1] mb-8 bg-clip-text text-transparent bg-zeeque-gradient"
+                        className="text-6xl md:text-8xl font-serif font-black tracking-tight leading-[1.1] mb-8"
                     >
-                        Everything You <br />
-                        Need to Know.
+                        <span className="bg-clip-text text-transparent bg-zeeque-gradient">
+                            Everything You <br />
+                            Need to Know
+                        </span> ❓
                     </motion.h1>
                     <motion.p
                         initial={{ y: 20, opacity: 0 }}

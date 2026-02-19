@@ -186,7 +186,7 @@ export default function EnrollPage() {
                 {/* Progress Journey */}
                 <div className="relative pt-12 pb-10">
                     {/* Background Bar */}
-                    <div className="absolute bottom-10 left-0 w-full h-12 bg-zinc-100 dark:bg-zinc-800 rounded-full overflow-hidden shadow-inner">
+                    <div className="absolute bottom-10 left-0 w-full h-12 bg-zinc-100/80 dark:bg-zinc-800 border border-zinc-200/50 dark:border-transparent rounded-full overflow-hidden shadow-inner">
                         <motion.div
                             className="h-full bg-zeeque-gradient shadow-[0_0_20px_rgba(139,92,246,0.3)]"
                             initial={{ width: "0%" }}
@@ -204,8 +204,8 @@ export default function EnrollPage() {
                                     className={cn(
                                         "w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-500 border-4 z-20 mb-12",
                                         index <= currentStep
-                                            ? "bg-zeeque-violet text-white border-violet-100 dark:border-violet-800 shadow-xl shadow-violet-200 dark:shadow-violet-900/40"
-                                            : "bg-white dark:bg-zinc-800 text-gray-300 dark:text-zinc-600 border-zinc-100 dark:border-zinc-700"
+                                            ? "bg-zeeque-violet text-white border-violet-100 dark:border-violet-800 shadow-xl shadow-violet-500/20 dark:shadow-violet-900/40"
+                                            : "bg-white dark:bg-zinc-800 text-zinc-400 dark:text-zinc-600 border-zinc-200 dark:border-zinc-700 shadow-sm"
                                     )}
                                 >
                                     {index < currentStep ? <CheckCircle2 size={24} /> : step.icon}
@@ -215,9 +215,11 @@ export default function EnrollPage() {
                                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-12 flex items-center justify-center w-max pointer-events-none">
                                     <span className={cn(
                                         "text-[10px] md:text-xs uppercase font-black tracking-[0.2em] transition-all duration-500",
-                                        index <= currentStep
+                                        index < currentStep
                                             ? "text-white"
-                                            : "text-zinc-400 dark:text-zinc-500"
+                                            : index === currentStep
+                                                ? "text-zeeque-violet dark:text-white"
+                                                : "text-zinc-400 dark:text-zinc-500"
                                     )}>
                                         {step.title}
                                     </span>
@@ -228,7 +230,7 @@ export default function EnrollPage() {
                 </div>
 
                 {/* Form Card */}
-                <Card className="rounded-[2.5rem] shadow-2xl shadow-violet-500/5 dark:shadow-violet-900/10 border-zinc-200 dark:border-violet-500/20 bg-white dark:bg-[#121212] overflow-hidden">
+                <Card className="rounded-[2.5rem] shadow-2xl shadow-violet-500/10 dark:shadow-violet-900/20 border-zinc-200 dark:border-violet-500/20 bg-white dark:bg-[#121212] overflow-hidden">
                     <CardContent className="p-6 md:p-12">
                         <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
                             <AnimatePresence mode="wait">
@@ -245,7 +247,7 @@ export default function EnrollPage() {
                                         <div className="space-y-8">
                                             <div className="space-y-6">
                                                 <div className="space-y-3">
-                                                    <Label className="text-lg font-bold text-foreground/80">Student's Full Name</Label>
+                                                    <Label className="text-lg font-bold text-foreground/80">Student's Full Name <span className="text-red-500">*</span></Label>
                                                     <Input
                                                         {...register("fullName")}
                                                         placeholder="Enter legal name"
@@ -256,7 +258,7 @@ export default function EnrollPage() {
 
                                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                                     <div className="space-y-3">
-                                                        <Label className="text-lg font-bold text-foreground/80">Date of Birth</Label>
+                                                        <Label className="text-lg font-bold text-foreground/80">Date of Birth <span className="text-red-500">*</span></Label>
                                                         <Popover>
                                                             <PopoverTrigger asChild>
                                                                 <Button
@@ -284,7 +286,7 @@ export default function EnrollPage() {
                                                     </div>
 
                                                     <div className="space-y-3">
-                                                        <Label className="text-lg font-bold text-foreground/80">Gender</Label>
+                                                        <Label className="text-lg font-bold text-foreground/80">Gender <span className="text-red-500">*</span></Label>
                                                         <RadioGroup
                                                             value={watchGender}
                                                             onValueChange={(val) => setValue("gender", val as "male" | "female")}
@@ -352,17 +354,17 @@ export default function EnrollPage() {
                                                 </div>
                                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                                     <div className="space-y-3">
-                                                        <Label className="font-bold">Name</Label>
+                                                        <Label className="font-bold">Name <span className="text-red-500">*</span></Label>
                                                         <Input {...register("fatherName")} className="h-14 rounded-2xl bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 focus:ring-2 focus:ring-zeeque-violet" placeholder="Enter name" />
                                                         {errors.fatherName && <p className="text-red-500 dark:text-red-400 text-xs font-bold">{errors.fatherName.message}</p>}
                                                     </div>
                                                     <div className="space-y-3">
-                                                        <Label className="font-bold">Occupation</Label>
+                                                        <Label className="font-bold">Occupation <span className="text-red-500">*</span></Label>
                                                         <Input {...register("fatherOccupation")} className="h-14 rounded-2xl bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 focus:ring-2 focus:ring-zeeque-violet" placeholder="Enter occupation" />
                                                         {errors.fatherOccupation && <p className="text-red-500 dark:text-red-400 text-xs font-bold">{errors.fatherOccupation.message}</p>}
                                                     </div>
                                                     <div className="space-y-3 md:col-span-2">
-                                                        <Label className="font-bold">Mobile Number</Label>
+                                                        <Label className="font-bold">Mobile Number <span className="text-red-500">*</span></Label>
                                                         <Input {...register("fatherMobile")} className="h-14 rounded-2xl bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 focus:ring-2 focus:ring-zeeque-violet" placeholder="10-digit number" />
                                                         {errors.fatherMobile && <p className="text-red-500 dark:text-red-400 text-xs font-bold">{errors.fatherMobile.message}</p>}
                                                     </div>
@@ -376,17 +378,17 @@ export default function EnrollPage() {
                                                 </div>
                                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                                     <div className="space-y-3">
-                                                        <Label className="font-bold">Name</Label>
+                                                        <Label className="font-bold">Name <span className="text-red-500">*</span></Label>
                                                         <Input {...register("motherName")} className="h-14 rounded-2xl bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 focus:ring-2 focus:ring-zeeque-violet" placeholder="Enter name" />
                                                         {errors.motherName && <p className="text-red-500 dark:text-red-400 text-xs font-bold">{errors.motherName.message}</p>}
                                                     </div>
                                                     <div className="space-y-3">
-                                                        <Label className="font-bold">Occupation</Label>
+                                                        <Label className="font-bold">Occupation <span className="text-red-500">*</span></Label>
                                                         <Input {...register("motherOccupation")} className="h-14 rounded-2xl bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 focus:ring-2 focus:ring-zeeque-violet" placeholder="Enter occupation" />
                                                         {errors.motherOccupation && <p className="text-red-500 dark:text-red-400 text-xs font-bold">{errors.motherOccupation.message}</p>}
                                                     </div>
                                                     <div className="space-y-3 md:col-span-2">
-                                                        <Label className="font-bold">Mobile Number</Label>
+                                                        <Label className="font-bold">Mobile Number <span className="text-red-500">*</span></Label>
                                                         <Input {...register("motherMobile")} className="h-14 rounded-2xl bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 focus:ring-2 focus:ring-zeeque-violet" placeholder="10-digit number" />
                                                         {errors.motherMobile && <p className="text-red-500 dark:text-red-400 text-xs font-bold">{errors.motherMobile.message}</p>}
                                                     </div>
@@ -401,15 +403,15 @@ export default function EnrollPage() {
 
                                             {/* Custom Program Selection */}
                                             <div className="space-y-4">
-                                                <Label className="text-xs font-black text-foreground/40 uppercase tracking-[0.2em] ml-2">Interested Program</Label>
+                                                <Label className="text-xs font-black text-foreground/40 uppercase tracking-[0.2em] ml-2">Interested Program <span className="text-red-500">*</span></Label>
                                                 <Select
                                                     value={watchClass}
                                                     onValueChange={(val) => setValue("targetClass", val)}
                                                 >
-                                                    <SelectTrigger className="h-20 rounded-[2rem] bg-zinc-950 border-2 border-violet-500/30 focus:border-zeeque-violet focus:ring-4 focus:ring-violet-500/10 px-8 text-xl font-bold text-white transition-all duration-300">
+                                                    <SelectTrigger className="h-20 rounded-[2rem] bg-zinc-50 dark:bg-zinc-900 border-2 border-zinc-200 dark:border-violet-500/30 focus:border-zeeque-violet focus:ring-4 focus:ring-violet-500/10 px-8 text-xl font-bold text-foreground dark:text-white transition-all duration-300">
                                                         <SelectValue placeholder="Select a program" />
                                                     </SelectTrigger>
-                                                    <SelectContent className="rounded-2xl border-2 border-violet-500/20 bg-zinc-950 p-2 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+                                                    <SelectContent className="rounded-2xl border-2 border-zinc-200 dark:border-violet-500/20 bg-white dark:bg-zinc-900 p-2 shadow-2xl">
                                                         {[
                                                             "Classes 1-3 (Foundation)",
                                                             "Classes 4-7 (Intermediate)",
@@ -420,7 +422,7 @@ export default function EnrollPage() {
                                                             <SelectItem
                                                                 key={program}
                                                                 value={program}
-                                                                className="py-4 px-6 text-lg font-bold text-zinc-400 focus:bg-blue-400 focus:text-zinc-950 rounded-xl transition-colors cursor-pointer"
+                                                                className="py-4 px-6 text-lg font-bold text-foreground/60 dark:text-zinc-400 focus:bg-zeeque-violet focus:text-white rounded-xl transition-colors cursor-pointer"
                                                             >
                                                                 {program}
                                                             </SelectItem>
@@ -432,7 +434,7 @@ export default function EnrollPage() {
 
                                             {/* Batch Selection */}
                                             <div className="space-y-4">
-                                                <Label className="text-xl font-black text-foreground">Preferred Batch Timing</Label>
+                                                <Label className="text-xl font-black text-foreground">Preferred Batch Timing <span className="text-red-500">*</span></Label>
                                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                     {[
                                                         { id: "7-8am", label: "7:00 AM - 8:00 AM", icon: "🌞", meta: "Morning" },

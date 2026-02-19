@@ -81,20 +81,20 @@ export default function AboutPage() {
                                     animate={{ opacity: 1, x: 0 }}
                                     className="space-y-8"
                                 >
-                                    <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-zinc-900 border border-white/10 text-zeeque-violet text-[10px] font-black uppercase tracking-[0.3em] shadow-2xl">
+                                    <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-violet-50 dark:bg-zinc-900 border border-violet-100 dark:border-white/10 text-zeeque-violet text-[10px] font-black uppercase tracking-[0.3em] shadow-sm dark:shadow-2xl">
                                         <History size={12} className="animate-spin-slow" /> Our Heritage
                                     </div>
 
-                                    <h1 className="text-6xl md:text-8xl font-serif font-black tracking-tighter leading-[0.95] text-foreground">
+                                    <h1 className="text-6xl md:text-8xl font-serif font-black tracking-tighter leading-[0.95] text-foreground relative">
                                         About <br />
                                         <span className="bg-clip-text text-transparent bg-zeeque-gradient">ZeeQue Plus</span><br />
-                                        <span className="text-4xl md:text-6xl opacity-50">Quran Course</span>
+                                        <span className="text-4xl md:text-6xl opacity-50">Quran Course 🌙</span>
                                     </h1>
 
                                     <div className="relative group">
                                         <div className="absolute -left-8 top-0 bottom-0 w-1 bg-zeeque-gradient rounded-full opacity-20 group-hover:opacity-100 transition-opacity duration-700" />
                                         <p className="text-2xl md:text-3xl font-black text-foreground leading-tight tracking-tight">
-                                            ZeeQue Plus was born from a simple observation: children excel when their spiritual learning matches the same high standards as their academic schooling.
+                                            ZeeQue Plus was born from a simple observation: children excel when their spiritual learning matches the same high standards as their academic schooling. 💡
                                         </p>
                                     </div>
 
@@ -121,7 +121,7 @@ export default function AboutPage() {
                                         { title: "QUALIFIED TEACHERS", icon: Users },
                                         { title: "CLASS 1-10 SYLLABUS", icon: GraduationCap }
                                     ].map((item, i) => (
-                                        <div key={i} className="group relative p-6 rounded-[2rem] bg-zinc-900/40 border border-white/5 backdrop-blur-sm transition-all duration-500 hover:bg-zinc-900 hover:border-violet-500/30 overflow-hidden">
+                                        <div key={i} className="group relative p-6 rounded-[2rem] bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-white/5 backdrop-blur-sm transition-all duration-500 hover:bg-violet-50 dark:hover:bg-zinc-900 hover:border-violet-500/30 overflow-hidden shadow-sm dark:shadow-none">
                                             <div className="relative z-10 flex items-center gap-4">
                                                 <div className="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center text-zeeque-violet group-hover:bg-zeeque-violet group-hover:text-white transition-all duration-500">
                                                     <item.icon size={18} />
@@ -145,27 +145,27 @@ export default function AboutPage() {
                                     className="relative w-full h-full"
                                 >
                                     {/* Main Frame */}
-                                    <div className="absolute inset-0 rounded-[4rem] border-2 border-violet-500/20 bg-zinc-900/50 backdrop-blur-xl shadow-[0_0_100px_rgba(139,92,246,0.1)] overflow-hidden group">
+                                    <div className="absolute inset-0 rounded-[4rem] border-2 border-violet-500/10 dark:border-violet-500/20 bg-zinc-100/50 dark:bg-zinc-900/50 backdrop-blur-xl shadow-[0_0_100px_rgba(139,92,246,0.05)] dark:shadow-[0_0_100px_rgba(139,92,246,0.1)] overflow-hidden group">
                                         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(139,92,246,0.1)_0%,transparent_100%)] z-10 opacity-40" />
                                         <Image
                                             src="/about%20hero%20image.png"
                                             alt="About ZeeQue Plus Hero"
                                             fill
-                                            className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700"
+                                            className="object-cover opacity-80 dark:opacity-80 group-hover:opacity-100 transition-opacity duration-700"
                                             priority
                                         />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 via-transparent to-transparent z-10" />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-white/80 dark:from-zinc-900/80 via-transparent to-transparent z-10" />
                                     </div>
 
                                     {/* Floating Stats/Badges */}
                                     <motion.div
                                         animate={{ y: [-15, 15] }}
                                         transition={{ duration: 4, repeat: Infinity, repeatType: "mirror", ease: "easeInOut" }}
-                                        className="absolute -bottom-6 -left-10 p-8 rounded-3xl bg-zinc-900 border border-violet-500/30 shadow-2xl z-20"
+                                        className="absolute -bottom-6 -left-10 p-8 rounded-3xl bg-white dark:bg-zinc-900 border border-violet-100 dark:border-violet-500/30 shadow-2xl z-20"
                                     >
                                         <Sparkles className="text-zeeque-violet mb-3" size={24} />
                                         <p className="text-sm font-black text-foreground tracking-tighter leading-tight">
-                                            Systematic. Joyful. <br /> Value-centered.
+                                            Systematic. Joyful. 🎨 <br /> Value-centered. ⭐
                                         </p>
                                     </motion.div>
 
@@ -330,7 +330,7 @@ export default function AboutPage() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.1 }}
-                                className={`group relative p-12 rounded-[4rem] bg-zinc-900/40 border border-white/5 backdrop-blur-xl transition-all duration-700 hover:border-violet-500/30 overflow-hidden ${approach.span}`}
+                                className={`group relative p-12 rounded-[4rem] bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-white/5 backdrop-blur-xl transition-all duration-700 hover:border-violet-500/30 overflow-hidden shadow-sm dark:shadow-none ${approach.span}`}
                             >
                                 {/* Index Background */}
                                 <div className="absolute top-10 right-14 text-9xl font-serif font-black text-white/[0.03] select-none transition-transform duration-700 group-hover:scale-110 group-hover:text-violet-500/[0.05]">
@@ -343,8 +343,8 @@ export default function AboutPage() {
                                     </div>
 
                                     <div className="space-y-6">
-                                        <h3 className="text-3xl md:text-4xl font-black text-white tracking-tight">{approach.title}</h3>
-                                        <p className="text-xl text-zinc-400 font-medium leading-relaxed max-w-xl">
+                                        <h3 className="text-3xl md:text-4xl font-black text-foreground dark:text-white tracking-tight">{approach.title}</h3>
+                                        <p className="text-xl text-foreground/60 dark:text-zinc-400 font-medium leading-relaxed max-w-xl">
                                             {approach.description}
                                         </p>
                                     </div>
@@ -406,7 +406,7 @@ export default function AboutPage() {
             <section className="py-32 relative overflow-hidden">
                 <div className="container-fluid relative z-10">
                     <div className="max-w-7xl mx-auto">
-                        <div className="bg-zinc-900/40 rounded-[4rem] border border-white/5 backdrop-blur-xl p-12 md:p-20 relative overflow-hidden">
+                        <div className="bg-zinc-50 dark:bg-zinc-900/40 rounded-[4rem] border border-zinc-200 dark:border-white/5 backdrop-blur-xl p-12 md:p-20 relative overflow-hidden">
                             {/* Decorative Background Glow */}
                             <div className="absolute -top-24 -left-24 w-96 h-96 bg-violet-600/10 blur-[120px] rounded-full" />
 
@@ -415,11 +415,11 @@ export default function AboutPage() {
                                     <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-violet-500/10 border border-violet-500/20 text-zeeque-violet text-xs font-black uppercase tracking-[0.2em]">
                                         <Users size={14} /> Partnership
                                     </div>
-                                    <h2 className="text-5xl md:text-7xl font-serif font-black tracking-tighter leading-[1.05] text-white">
+                                    <h2 className="text-5xl md:text-7xl font-serif font-black tracking-tighter leading-[1.05] text-foreground dark:text-white">
                                         Parent <br />
                                         <span className="bg-clip-text text-transparent bg-zeeque-gradient">Partnership.</span>
                                     </h2>
-                                    <p className="text-xl text-zinc-400 font-medium leading-relaxed">
+                                    <p className="text-xl text-foreground/60 dark:text-zinc-400 font-medium leading-relaxed">
                                         We believe parents are our primary partners in a child&apos;s spiritual development. ZeeQue Plus keeps you involved at every milestone.
                                     </p>
                                 </div>
@@ -437,12 +437,12 @@ export default function AboutPage() {
                                             whileInView={{ opacity: 1, scale: 1 }}
                                             viewport={{ once: true }}
                                             transition={{ delay: i * 0.1 }}
-                                            className="p-8 rounded-[2.5rem] bg-white/[0.03] border border-white/5 hover:border-violet-500/30 transition-all duration-500 group"
+                                            className="p-8 rounded-[2.5rem] bg-white dark:bg-white/[0.03] border border-zinc-200 dark:border-white/5 hover:border-violet-500/30 transition-all duration-500 group shadow-sm dark:shadow-none"
                                         >
                                             <div className="w-12 h-12 rounded-2xl bg-violet-500/10 flex items-center justify-center text-zeeque-violet mb-6 group-hover:bg-zeeque-violet group-hover:text-white transition-all duration-500">
                                                 <item.icon size={24} />
                                             </div>
-                                            <p className="font-black text-sm uppercase tracking-widest text-white/80">{item.title}</p>
+                                            <p className="font-black text-sm uppercase tracking-widest text-foreground/80 dark:text-white/80">{item.title}</p>
                                         </motion.div>
                                     ))}
                                 </div>
