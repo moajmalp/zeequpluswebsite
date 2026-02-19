@@ -87,7 +87,7 @@ export default function AboutPage() {
 
                                     <h1 className="text-6xl md:text-8xl font-serif font-black tracking-tighter leading-[0.95] text-foreground relative">
                                         About <br />
-                                        <span className="bg-clip-text text-transparent bg-zeeque-gradient">ZeeQue Plus</span><br />
+                                        <span className="bg-clip-text text-transparent bg-zeeque-gradient dark:text-white">ZeeQue Plus</span><br />
                                         <span className="text-4xl md:text-6xl opacity-50">Quran Course 🌙</span>
                                     </h1>
 
@@ -180,35 +180,6 @@ export default function AboutPage() {
 
             <div className="h-px w-full bg-gradient-to-r from-transparent via-zinc-200 dark:via-zinc-800 to-transparent mx-auto max-w-7xl" />
 
-            {/* Existing Hero Content (Transitioned) */}
-            <section className="relative pt-24 pb-24 overflow-hidden">
-                <div className="container-fluid relative z-10 text-center">
-                    <motion.div
-                        initial={{ scale: 0.8, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-50 dark:bg-violet-900/10 border border-violet-100 dark:border-violet-800/20 mb-8"
-                    >
-                        <History size={16} className="text-zeeque-violet" />
-                        <span className="text-xs font-black uppercase tracking-widest text-zeeque-violet">Our Heritage & Mission</span>
-                    </motion.div>
-                    <motion.h1
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        className="text-6xl md:text-8xl font-serif font-black tracking-tight leading-[1.1] mb-8 bg-clip-text text-transparent bg-zeeque-gradient"
-                    >
-                        About ZeeQue Plus<br />
-                        Quran Course
-                    </motion.h1>
-                    <motion.p
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.2 }}
-                        className="text-xl md:text-2xl text-foreground/60 font-medium max-w-3xl mx-auto leading-relaxed"
-                    >
-                        ZeeQue Plus was born from a simple observation: children excel when their spiritual learning matches the same high standards as their academic schooling.
-                    </motion.p>
-                </div>
-            </section>
 
             {/* Mission & Vision Section */}
             <section className="py-24 relative overflow-hidden">
@@ -225,7 +196,7 @@ export default function AboutPage() {
                                     <div className="w-16 h-16 bg-zeeque-gradient rounded-2xl flex items-center justify-center text-white shadow-xl shadow-violet-500/20">
                                         <Heart size={32} />
                                     </div>
-                                    <h2 className="text-4xl font-serif font-black tracking-tight bg-clip-text text-transparent bg-zeeque-gradient">Our Mission</h2>
+                                    <h2 className="text-4xl font-serif font-black tracking-tight text-foreground dark:text-white">Our Mission</h2>
                                 </div>
                                 <p className="text-xl text-foreground/70 leading-relaxed font-medium">
                                     To provide school-going children with a structured, engaging, and spiritually enriching Qur&apos;anic ecosystem. We aim to bridge the gap between traditional learning and modern educational standards.
@@ -238,7 +209,7 @@ export default function AboutPage() {
                                     <div className="w-16 h-16 bg-white text-zeeque-violet rounded-2xl flex items-center justify-center shadow-lg">
                                         <Compass size={32} />
                                     </div>
-                                    <h2 className="text-4xl font-serif font-black tracking-tight bg-clip-text text-transparent bg-zeeque-gradient">Our Vision</h2>
+                                    <h2 className="text-4xl font-serif font-black tracking-tight text-white">Our Vision</h2>
                                 </div>
                                 <p className="text-xl text-white/90 leading-relaxed font-medium">
                                     To raise a generation that reads the Qur&apos;an with fluency, understands its core values, and implements beautiful character (Akhlaq) in their daily lives.
@@ -281,7 +252,7 @@ export default function AboutPage() {
                         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-50 dark:bg-violet-900/10 text-zeeque-violet font-bold text-xs uppercase tracking-widest">
                             <Target size={16} /> Strategy & Method
                         </div>
-                        <h2 className="text-5xl md:text-6xl font-serif font-black bg-clip-text text-transparent bg-zeeque-gradient">Our Approach</h2>
+                        <h2 className="text-5xl md:text-6xl font-serif font-black text-foreground dark:text-white">Our Approach</h2>
                         <p className="text-xl text-foreground/60 font-medium max-w-2xl mx-auto italic transition-all group-hover:not-italic group-hover:text-foreground">How We Teach Matters.</p>
                     </div>
 
@@ -371,7 +342,7 @@ export default function AboutPage() {
                         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-900/10 text-emerald-600 font-bold text-xs uppercase tracking-widest">
                             <Sparkles size={16} /> The Mentors
                         </div>
-                        <h2 className="text-5xl md:text-6xl font-serif font-black bg-clip-text text-transparent bg-zeeque-gradient">Led by Passionate Educators</h2>
+                        <h2 className="text-5xl md:text-6xl font-serif font-black text-foreground dark:text-white">Led by Passionate Educators</h2>
                         <p className="text-xl text-foreground/60 font-medium max-w-2xl mx-auto">Meet the certified experts who guide your children through their spiritual journey.</p>
                     </div>
 
@@ -417,7 +388,7 @@ export default function AboutPage() {
                                     </div>
                                     <h2 className="text-5xl md:text-7xl font-serif font-black tracking-tighter leading-[1.05] text-foreground dark:text-white">
                                         Parent <br />
-                                        <span className="bg-clip-text text-transparent bg-zeeque-gradient">Partnership.</span>
+                                        <span className="bg-clip-text text-transparent bg-zeeque-gradient dark:text-white">Partnership.</span>
                                     </h2>
                                     <p className="text-xl text-foreground/60 dark:text-zinc-400 font-medium leading-relaxed">
                                         We believe parents are our primary partners in a child&apos;s spiritual development. ZeeQue Plus keeps you involved at every milestone.
@@ -429,7 +400,7 @@ export default function AboutPage() {
                                         { title: "Attendance & Consistancy", icon: CheckCircle2 },
                                         { title: "Lesson Progress", icon: BookOpen },
                                         { title: "Strengths & Growth", icon: Sparkles },
-                                        { title: "Assessments", icon: ShieldCheck }
+                                        { title: "Assessments & More", icon: ShieldCheck }
                                     ].map((item, i) => (
                                         <motion.div
                                             key={i}

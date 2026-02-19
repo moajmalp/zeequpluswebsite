@@ -105,8 +105,8 @@ const Footer = () => {
                 <div className="mt-20 pt-10 border-t border-border flex flex-col md:flex-row justify-between items-center gap-6 text-foreground/40 text-sm font-bold tracking-tight">
                     <p>© {new Date().getFullYear()} ZEEQUE PLUS. ALL RIGHTS RESERVED.</p>
                     <div className="flex gap-10">
-                        <Link href="/privacy" className="hover:text-zeeque-violet transition-colors">PRIVACY POLICY</Link>
-                        <Link href="/terms" className="hover:text-zeeque-violet transition-colors">TERMS OF USE</Link>
+                        <Link href="/privacy" target="_blank" rel="noopener noreferrer" className="hover:text-zeeque-violet transition-colors">PRIVACY POLICY</Link>
+                        <Link href="/terms" target="_blank" rel="noopener noreferrer" className="hover:text-zeeque-violet transition-colors">TERMS OF USE</Link>
                     </div>
                 </div>
             </div>
