@@ -72,40 +72,64 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="text-6xl md:text-7xl lg:text-8xl font-serif font-black leading-[1.1] tracking-tight"
+                className="text-6xl md:text-7xl lg:text-8xl font-serif font-black leading-[1.1] tracking-tight relative"
               >
                 <span className="bg-clip-text text-transparent bg-zeeque-gradient">
                   Future-Proof Your Child&apos;s Deen.
                 </span>
+                {/* Floating Emojis */}
+                <motion.span
+                  animate={{ y: [0, -10, 0], rotate: [0, 10, -10, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute -top-12 right-0 text-4xl md:text-5xl hidden lg:block"
+                >
+                  ⭐
+                </motion.span>
+                <motion.span
+                  animate={{ y: [0, 15, 0], x: [0, 5, 0] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                  className="absolute -bottom-8 -left-12 text-3xl md:text-4xl hidden lg:block"
+                >
+                  🌈
+                </motion.span>
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="text-xl md:text-2xl text-foreground/60 leading-relaxed font-sans max-w-xl mx-auto md:mx-0 font-medium"
+                className="text-xl md:text-2xl text-foreground/60 leading-relaxed font-sans max-w-xl mx-auto md:mx-0 font-medium relative"
               >
-                A structured, step-by-step Qur&apos;an learning journey for school-going children — with Tajweed, Hifz, Akhlaq and Adkār.
+                A structured, step-by-step Qur&apos;an learning journey for school-going children — with Tajweed, Hifz, Akhlaq and Adkār. ✨
               </motion.p>
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="flex flex-col sm:flex-row gap-5 justify-center md:justify-start pt-4"
+                className="flex flex-col sm:flex-row gap-5 justify-center md:justify-start pt-4 relative"
               >
+                {/* Magical Floating Bubbles */}
+                <div className="absolute -left-20 top-1/2 w-4 h-4 bg-violet-400/20 rounded-full blur-sm animate-pulse" />
+                <div className="absolute -right-20 bottom-0 w-6 h-6 bg-indigo-400/20 rounded-full blur-sm animate-pulse delay-700" />
+
                 <Link
                   href="/enroll"
-                  className="px-10 py-5 rounded-2xl bg-zeeque-gradient text-white font-black text-xl hover:shadow-2xl hover:scale-105 dark:hover:brightness-110 transition-all flex items-center justify-center gap-2"
+                  className="px-10 py-5 rounded-2xl bg-zeeque-gradient text-white font-black text-xl hover:shadow-2xl hover:scale-105 dark:hover:brightness-110 transition-all flex items-center justify-center gap-2 group"
                 >
                   Enroll Now
-                  <ArrowRight className="w-6 h-6" />
+                  <motion.span
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    <ArrowRight className="w-6 h-6" />
+                  </motion.span>
                 </Link>
                 <Link
                   href="/prospectus"
                   className="px-10 py-5 rounded-2xl border-2 border-violet-200 dark:border-violet-900/50 text-zeeque-violet dark:text-violet-400 font-black text-xl hover:bg-violet-50 dark:hover:bg-violet-900/10 transition-all flex items-center justify-center gap-2"
                 >
-                  Prospectus
+                  Prospectus 📖
                 </Link>
               </motion.div>
             </div>

@@ -23,9 +23,9 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --color-zeeque-violet: #5B21B6;
-  --color-zeeque-deep: #4C1D95;
-  --color-zeeque-indigo: #6366F1;
+  --color-zeeque-violet: var(--zeeque-violet);
+  --color-zeeque-deep: var(--zeeque-deep);
+  --color-zeeque-indigo: var(--zeeque-indigo);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -87,6 +87,11 @@
   --border: #e5e7eb;
   --input: #e5e7eb;
   --ring: #5B21B6;
+
+  /* Brand Colors - Light */
+  --zeeque-violet: #5B21B6;
+  --zeeque-deep: #4C1D95;
+  --zeeque-indigo: #6366F1;
 }
 
 .dark {
@@ -123,6 +128,14 @@
   --input: #4C1D95;
   --ring: #8B5CF6;
   /* Glowing pop */
+
+  /* Brand Colors - Dark */
+  --zeeque-violet: #A78BFA;
+  /* Lighter violet for dark mode */
+  --zeeque-deep: #7C3AED;
+  /* Balanced deep violet for dark mode */
+  --zeeque-indigo: #818CF8;
+  /* Softer indigo for dark mode */
 }
 
 @layer utilities {
